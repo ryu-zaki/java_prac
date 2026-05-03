@@ -14,13 +14,26 @@ public class FrequencyCalc {
     }
 
 
-    public List<Integer> getFrequency() {
+    public Integer findMaxValueKey(Map<Integer,Integer> frequencies) {
+        Integer maxValue = null;
+        Integer maxKey = null;
+
+        for (Map.Entry<Integer, Integer> entry: frequencies.entrySet()) {
+
+            if (maxValue == null || maxValue < entry.getValue()) {
+                maxValue = entry.getValue();
+                maxKey = entry.getKey();
+            }
+        }
+
+        return maxKey;
+    }
 
 
+    public Integer getFrequency() {
         Map<Integer, Integer> frequencies = new HashMap<>();
 
         for (Integer number: nums) {
-
             if (frequencies.containsKey(number)) {
                 Integer prevNum = frequencies.get(number);
                 frequencies.replace(number, prevNum + 1);
@@ -28,23 +41,13 @@ public class FrequencyCalc {
             } else {
                 frequencies.put(number, 1);
             }
-
         }
 
-        Integer maxValue = null;
-        Integer maxKey = null;
+        Integer maxKey = findMaxValueKey(frequencies);
+        frequencies.remove(maxKey);
 
-        for (Map.Entry<Integer, Integer> entry: frequencies.entrySet()) {
 
-                if (maxValue == null || maxValue < entry.getValue()) {
-                    maxValue = entry.getValue();
-                    maxKey = entry.getKey();
-                }
-        }
-
-        System.out.println("Most of keys: " + maxKey);
-
-        return new ArrayList<>();
+        return findMaxValueKey(frequencies);
 
     }
 
