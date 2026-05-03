@@ -19,22 +19,30 @@ public class FrequencyCalc {
 
         Map<Integer, Integer> frequencies = new HashMap<>();
 
-        int appearanceNum = 1;
-
         for (Integer number: nums) {
 
             if (frequencies.containsKey(number)) {
-                appearanceNum++;
-                frequencies.replace(number, appearanceNum);
+                Integer prevNum = frequencies.get(number);
+                frequencies.replace(number, prevNum + 1);
 
             } else {
-                appearanceNum = 1;
-                frequencies.put(number, appearanceNum);
+                frequencies.put(number, 1);
             }
 
         }
 
-        System.out.println(frequencies);
+        Integer maxValue = null;
+        Integer maxKey = null;
+
+        for (Map.Entry<Integer, Integer> entry: frequencies.entrySet()) {
+
+                if (maxValue == null || maxValue < entry.getValue()) {
+                    maxValue = entry.getValue();
+                    maxKey = entry.getKey();
+                }
+        }
+
+        System.out.println("Most of keys: " + maxKey);
 
         return new ArrayList<>();
 

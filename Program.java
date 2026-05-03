@@ -13,7 +13,7 @@ public class Program {
         nums.add(2);
         nums.add(2);
         nums.add(3);
-        nums.add(3);
+        nums.add(2);
 
         FrequencyCalc calc = new FrequencyCalc(nums);
 
