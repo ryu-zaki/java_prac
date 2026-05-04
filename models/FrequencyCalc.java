@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class FrequencyCalc {
 
@@ -12,23 +13,6 @@ public class FrequencyCalc {
     public FrequencyCalc(List<Integer> nums) {
         this.nums = nums;
     }
-
-
-    public Integer findMaxValueKey(Map<Integer,Integer> frequencies) {
-        Integer maxValue = null;
-        Integer maxKey = null;
-
-        for (Map.Entry<Integer, Integer> entry: frequencies.entrySet()) {
-
-            if (maxValue == null || maxValue < entry.getValue()) {
-                maxValue = entry.getValue();
-                maxKey = entry.getKey();
-            }
-        }
-
-        return maxKey;
-    }
-
 
     public Integer getFrequency() {
         Map<Integer, Integer> frequencies = new HashMap<>();
@@ -43,11 +27,21 @@ public class FrequencyCalc {
             }
         }
 
-        Integer maxKey = findMaxValueKey(frequencies);
-        frequencies.remove(maxKey);
+        List<Map.Entry<Integer, Integer>> keyValues = new ArrayList<>(frequencies.entrySet());
+        AtomicBoolean hasEven = new AtomicBoolean(true);
 
+        keyValues.sort((a, b) -> {
+                 int comparator = b.getValue() - a.getValue();
 
-        return findMaxValueKey(frequencies);
+                 if (comparator == 0) return b.getKey() - a.getKey();
+
+                 hasEven.set(false);
+                 return comparator;
+        });
+
+        System.out.println(keyValues);
+
+        return !hasEven.get() ? keyValues.get(1).getKey() : keyValues.get(0).getKey();
 
     }
 
