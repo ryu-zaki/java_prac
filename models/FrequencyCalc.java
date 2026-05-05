@@ -38,7 +38,6 @@ public class FrequencyCalc {
                  hasEven.set(false);
                  return comparator;
         });
-
         System.out.println(keyValues);
 
         return !hasEven.get() ? keyValues.get(1).getKey() : keyValues.get(0).getKey();

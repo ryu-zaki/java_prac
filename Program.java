@@ -1,4 +1,5 @@
 import models.FrequencyCalc;
+import models.RandomNumber;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,22 +8,10 @@ public class Program {
 
 
     public static void main(String[] args) {
+        // RandomNumber.setIsTest();
+        int random = RandomNumber.getInstance().getRandoNumber();
 
-        List<Integer> nums = new ArrayList<>();
-        nums.add(1);
-        nums.add(1);
-        nums.add(4);
-       /* nums.add(4);*/
-        nums.add(3);
-        nums.add(3);
-        nums.add(3);
-       /* nums.add(4);
-        nums.add(3);
-        nums.add(3);*/
-
-        FrequencyCalc calc = new FrequencyCalc(nums);
-
-        System.out.println("Max Key: " + calc.getFrequency());
+        System.out.println(random);
 
 
     }
