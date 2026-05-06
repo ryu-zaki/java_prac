@@ -1,19 +1,11 @@
-import models.FrequencyCalc;
-import models.RandomNumber;
-
-import java.util.ArrayList;
-import java.util.List;
+import models.DatabaseConnection;
 
 public class Program {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // RandomNumber.setIsTest();
-        int random = RandomNumber.getInstance().getRandoNumber();
-
-        System.out.println(random);
-
-
+        DatabaseConnection.runThreads();
     }
 
 
