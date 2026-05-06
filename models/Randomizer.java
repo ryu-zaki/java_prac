@@ -11,7 +11,13 @@ public class Randomizer {
 
     public static Randomizer getInstance() {
         if (random == null) {
-            random = new Randomizer();
+
+            synchronized (Randomizer.class) {
+                if (random == null) {
+                    random = new Randomizer();
+                }
+            }
+
         }
 
         return random;
