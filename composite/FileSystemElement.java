@@ -16,4 +16,15 @@ public abstract class FileSystemElement {
         return name;
     }
 
+    public abstract void display(String prepend);
+
+    public void add(FileSystemElement elem) throws Exception
+    {
+        throw new Exception("Cannot add to this element");
+    }
+
+    public void remove(FileSystemElement elem) throws Exception
+    {
+        throw new Exception("Cannot add to this element");
+    }
 }
