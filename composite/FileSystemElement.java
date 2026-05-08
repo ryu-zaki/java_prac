@@ -18,13 +18,12 @@ public abstract class FileSystemElement {
 
     public abstract void display(String prepend);
 
-    public void add(FileSystemElement elem) throws Exception
-    {
-        throw new Exception("Cannot add to this element");
+    public void add(FileSystemElement newElement) throws Exception {
+        throw new Error("CANNOT ADD TO THIS ELEMENT.");
     }
 
-    public void remove(FileSystemElement elem) throws Exception
-    {
-        throw new Exception("Cannot add to this element");
+    public void remove(String fileName) throws Exception {
+        throw new Error("CANNOT REMOVE THIS ELEMENT.");
     }
+
 }
