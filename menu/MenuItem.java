@@ -1,7 +1,8 @@
 package menu;
 
-public class MenuItem extends MenuComponent {
+import pricing.BillCalculator;
 
+public class MenuItem extends MenuComponent {
     private float price;
 
     public MenuItem(String name, float price) {

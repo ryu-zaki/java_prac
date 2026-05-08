@@ -36,4 +36,15 @@ public class  MenuCategory extends  MenuComponent {
                 .toList();
     }
 
+    @Override
+    public float getPrice() {
+        float sum = 0;
+
+        for (MenuComponent item: items) {
+            sum += item.getPrice();
+        }
+
+        return sum;
+    }
+
 }

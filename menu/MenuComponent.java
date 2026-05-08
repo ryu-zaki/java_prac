@@ -10,9 +10,7 @@ public abstract class MenuComponent {
 
     public abstract void display(String prepend);
 
-    public float getPrice() throws Exception {
-        throw new Exception("Cannot get the price of this item");
-    }
+    public abstract float getPrice();
 
     public void setPrice(float newPrice) throws Exception {
         throw new Exception("Cannot set the price of this item");

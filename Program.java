@@ -1,10 +1,17 @@
 import menu.MenuCategory;
 import menu.MenuItem;
+import pricing.BillCalculator;
+import pricing.DiscountPricing;
+import pricing.HappyHourPricing;
+import pricing.RegularPricing;
 
 public class Program {
 
 
     public static void main(String[] args) throws InterruptedException {
+
+        MenuCategory rootMenu = RestaurantRegistry.getInstance().getRootMenu();
+        BillCalculator calculator = new BillCalculator(new HappyHourPricing());
 
         MenuCategory category = new MenuCategory("Beverages");
         category.add(new MenuItem("Coffee", (float) 1.50));
@@ -17,7 +24,11 @@ public class Program {
         subCategory.add(new MenuItem("Mango", (float) 4.30));
 
         category.add(subCategory);
-        category.display("");
+        rootMenu.add(category);
+
+        rootMenu.display("");
+        calculator.printBill(rootMenu.getPrice());
+
 
     }
 
