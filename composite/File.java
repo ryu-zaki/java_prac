@@ -10,7 +10,4 @@ public class File extends FileSystemElement {
     public void display(String prepend) {
        System.out.println(prepend + "|--" + getName());
     }
-
-
-
 }

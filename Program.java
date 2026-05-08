@@ -8,11 +8,8 @@ public class Program {
 
     public static void main(String[] args) throws InterruptedException {
         // RandomNumber.setIsTest();
-      //  DatabaseConnection.runThreads();
+        // DatabaseConnection.runThreads();
 
-        File file = new File("OJT Document");
-
-        file.display("");
 
     }
 
