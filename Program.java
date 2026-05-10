@@ -1,3 +1,7 @@
+import decorators.ConsoleLogger;
+import decorators.DateDecorator;
+import decorators.Logger;
+import decorators.LoggerDecorator;
 import menu.MenuCategory;
 import menu.MenuItem;
 import pricing.BillCalculator;
@@ -10,7 +14,7 @@ public class Program {
 
     public static void main(String[] args) throws InterruptedException {
 
-        MenuCategory rootMenu = RestaurantRegistry.getInstance().getRootMenu();
+       /* MenuCategory rootMenu = RestaurantRegistry.getInstance().getRootMenu();
         BillCalculator calculator = new BillCalculator(new HappyHourPricing());
 
         MenuCategory category = new MenuCategory("Beverages");
@@ -27,7 +31,14 @@ public class Program {
         rootMenu.add(category);
 
         rootMenu.display("");
-        calculator.printBill(rootMenu.getPrice());
+        calculator.printBill(rootMenu.getPrice());*/
+
+        Logger logger = new ConsoleLogger();
+        logger.log("Hello Universe");
+
+        logger = new LoggerDecorator(logger);
+        logger.log("Hello World");
+
 
 
     }
